@@ -40,18 +40,18 @@ public class Coffee extends MenuItem {
         double total = 0;
         switch (cupSize) {
             case "Short":
-                total = 1.89;
+                total = Constants.SHORT_CUP_COST;
             case "Tall":
-                total = 2.29;
+                total = Constants.TALL_CUP_COST;
             case "Grande":
-                total = 2.69;
+                total = Constants.GRANDE_CUP_COST;
             case "Venti":
-                total = 3.09;
+                total = Constants.VENTI_CUP_COST;
             default:
-                total = 0;
+                total = Constants.NO_COST;
         }
 
-        total += (addIns.size() * 0.3);
+        total += (addIns.size() * Constants.ADD_IN_COST);
 
         return total;
     }
