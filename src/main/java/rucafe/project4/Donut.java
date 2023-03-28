@@ -1,27 +1,24 @@
 package rucafe.project4;
 
-public class Donut extends MenuItem {
-    private String type;
+/**
+ * This is a class that extends the MenuItem class, which allows for the creation of a donut object.
+ * @author Viral Patel, Rohan Patel
+ */
+public abstract class Donut extends MenuItem {
     private String flavor;
-    public Donut(String type, String flavor) {
-        this.type = type;
+
+    /**
+     * Constructor for donut object, contains flavor.
+     * @param flavor String: flavor of the donut.
+     */
+    public Donut(String flavor) {
         this.flavor = flavor;
     }
 
-    public double itemPrice() {
-        switch (type) {
-            case "Yeast": {
-                return 1.59;
-            }
-            case "Cake": {
-                return 1.79;
-            }
-            case "Donut Hole": {
-                return 0.39;
-            }
-
-        }
-
-        return -1;
-    }
+    /**
+     * Method from parent class MenuItem. It is also abstract in the donut class as donut is an abstract class
+     * with three subclasses.
+     * @return double: returns the price of the donut.
+     */
+    public abstract double itemPrice();
 }
