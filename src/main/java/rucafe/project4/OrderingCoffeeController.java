@@ -1,14 +1,11 @@
 package rucafe.project4;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 
 public class OrderingCoffeeController {
-    @FXML
-    private Label welcomeText;
-
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    private RUCafeMainController mainController;
+    public void setMainController (RUCafeMainController controller){
+        mainController = controller;
     }
+
 }
