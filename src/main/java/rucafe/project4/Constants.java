@@ -17,8 +17,4 @@ public class Constants {
     public static final double CAKE_DONUT_PRICE = 1.79;
     public static final double DONUT_HOLE_PRICE = 0.39;
 
-
-
-
-
 }

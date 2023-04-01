@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Order {
     private int orderNumber;
-    private ArrayList<Object> itemsInOrder = new ArrayList<>();
+    private ArrayList<Object> itemsInOrder;
 
     /**
      * Constructor for the order object, which contains the order number and list of menu items in the order.
