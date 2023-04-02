@@ -28,12 +28,14 @@ public class OrderTracker {
         }
     }
 
-    @Override
-    public String toString() {
+    /**
+     * Prints all orders in the list 
+     * @return
+     */
+    public String printOrders() {
         String ret = "";
-
         for (int i = 0; i < orderTracker.size(); i++)
-            ret += (orderTracker.get(i).toString() + "\n");
+            ret += (orderTracker.get(i).toString() + "\n\n");
 
         return ret;
     }

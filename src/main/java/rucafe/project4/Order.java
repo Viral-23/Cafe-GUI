@@ -28,4 +28,31 @@ public class Order {
     public void setOrderNumber(int orderNumber) {
         this.orderNumber = orderNumber;
     }
+
+    /**
+     * Getter method, which retrieves the order number of the order.
+     * @return int: returns the order number.
+     */
+    public int getOrderNumber() {
+        return orderNumber;
+    }
+
+    /**
+     * Overrides the toString method, displays items in order and their prices in a list view.
+     * @return String: the string that contains the list of formatted items in the order.
+     */
+    @Override
+    public String toString() {
+        String ret = "";
+
+        for (Object object : itemsInOrder) {
+            String order = object.toString();
+            String[] parts = order.split(":");
+            String item = parts[0].trim();
+            String price = parts[1].trim();
+            ret += String.format("%-10s %6s\n", item, price);
+        }
+
+        return ret;
+    }
 }

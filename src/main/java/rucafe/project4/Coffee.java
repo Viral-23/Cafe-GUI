@@ -77,6 +77,6 @@ public class Coffee extends MenuItem {
             }
         }
 
-        return ret;
+        return ret + ": $" + itemPrice();
     }
 }

@@ -16,6 +16,14 @@ public abstract class Donut extends MenuItem {
     }
 
     /**
+     * Getter method to retrieve the flavor of a donut.
+     * @return String: returns the flavor of the donut.
+     */
+    public String getFlavor() {
+        return flavor;
+    }
+
+    /**
      * Method from parent class MenuItem. It is also abstract in the donut class as donut is an abstract class
      * with three subclasses.
      * @return double: returns the price of the donut.

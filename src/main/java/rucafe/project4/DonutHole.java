@@ -22,4 +22,9 @@ public class DonutHole extends Donut {
     public double itemPrice() {
         return Constants.DONUT_HOLE_PRICE;
     }
+
+    @Override
+    public String toString() {
+        return "Donut Hole (" + super.getFlavor() + "): $" + itemPrice();
+    }
 }

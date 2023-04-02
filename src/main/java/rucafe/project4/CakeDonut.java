@@ -22,4 +22,9 @@ public class CakeDonut extends Donut {
     public double itemPrice() {
         return Constants.CAKE_DONUT_PRICE;
     }
+
+    @Override
+    public String toString() {
+        return "Cake Donut (" + super.getFlavor() + "): $" + itemPrice();
+    }
 }
