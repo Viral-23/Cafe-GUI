@@ -20,4 +20,12 @@ public class Order {
         this.orderNumber = orderNumber;
         this.itemsInOrder = itemsInOrder;
     }
+
+    /**
+     * Setter method, which sets the order number of the order to the specified order number.
+     * @param orderNumber int: the order number that will be assigned to the order.
+     */
+    public void setOrderNumber(int orderNumber) {
+        this.orderNumber = orderNumber;
+    }
 }
