@@ -17,7 +17,7 @@ public class Order {
      * @param itemsInOrder Object: The list of menu items (donut and coffee) in the order.
      */
     public Order(int orderNumber, ArrayList<Object> itemsInOrder) {
-        this.orderNumber = orderNumber++;
+        this.orderNumber = orderNumber;
         this.itemsInOrder = itemsInOrder;
     }
 }
