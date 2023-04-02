@@ -23,6 +23,10 @@ public class DonutHole extends Donut {
         return Constants.DONUT_HOLE_PRICE;
     }
 
+    /**
+     * Overrides the toString method, which formats the donut hole object.
+     * @return String: returns the formatted donut hole object, which includes the flavor and price.
+     */
     @Override
     public String toString() {
         return "Donut Hole (" + super.getFlavor() + "): $" + itemPrice();

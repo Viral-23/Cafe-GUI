@@ -23,6 +23,10 @@ public class CakeDonut extends Donut {
         return Constants.CAKE_DONUT_PRICE;
     }
 
+    /**
+     * Overrides the toString method, which formats the cake donut object.
+     * @return String: returns the formatted cake donut object, which includes the flavor and price.
+     */
     @Override
     public String toString() {
         return "Cake Donut (" + super.getFlavor() + "): $" + itemPrice();

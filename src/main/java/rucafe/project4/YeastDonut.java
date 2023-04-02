@@ -23,6 +23,10 @@ public class YeastDonut extends Donut {
         return Constants.YEAST_DONUT_PRICE;
     }
 
+    /**
+     * Overrides the toString method, which formats the yeast donut object.
+     * @return String: returns the formatted yeast donut object, which includes the flavor and price.
+     */
     @Override
     public String toString() {
         return "Yeast Donut (" + super.getFlavor() + "): $" + itemPrice();

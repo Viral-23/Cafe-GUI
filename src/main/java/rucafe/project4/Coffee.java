@@ -58,7 +58,8 @@ public class Coffee extends MenuItem {
 
     /**
      * Overrides the toString method to display the Coffee object in the form of a string.
-     * @return String: returns the Coffee object formatted as a String.
+     * @return String: returns the Coffee object formatted as a String, which includes the cup size, list of add-ins,
+     * and the price.
      */
     @Override
     public String toString() {

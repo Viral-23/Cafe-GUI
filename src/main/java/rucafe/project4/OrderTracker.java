@@ -29,8 +29,8 @@ public class OrderTracker {
     }
 
     /**
-     * Prints all orders in the list 
-     * @return
+     * Prints all orders in the list.
+     * @return String: returns the string which contains the printed list of formatted orders.
      */
     public String printOrders() {
         String ret = "";
