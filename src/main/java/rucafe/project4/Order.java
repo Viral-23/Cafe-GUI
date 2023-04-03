@@ -8,15 +8,19 @@ import java.util.ArrayList;
  */
 
 public class Order {
-    private int orderNumber;
-    private ArrayList<Object> itemsInOrder;
+    private int orderNumber = 0;
+    private ArrayList<MenuItem> itemsInOrder;
+
+    public Order() {
+        itemsInOrder = new ArrayList<>();
+    }
 
     /**
      * Constructor for the order object, which contains the order number and list of menu items in the order.
      * @param orderNumber int: The order number of the current customer.
      * @param itemsInOrder Object: The list of menu items (donut and coffee) in the order.
      */
-    public Order(int orderNumber, ArrayList<Object> itemsInOrder) {
+    public Order(int orderNumber, ArrayList<MenuItem> itemsInOrder) {
         this.orderNumber = orderNumber;
         this.itemsInOrder = itemsInOrder;
     }
@@ -37,6 +41,18 @@ public class Order {
         return orderNumber;
     }
 
+    public ArrayList<MenuItem> getItemsInOrder() {
+        return itemsInOrder;
+    }
+
+    /**
+     * Adds a menu item to the order, specified by menuItem.
+     * @param menuItem
+     */
+    public void addItemToOrder(Coffee menuItem) {
+        itemsInOrder.add(menuItem);
+    }
+
     /**
      * Overrides the toString method, displays items in order and their prices in a list view.
      * @return String: the string that contains the list of formatted items in the order.
@@ -45,8 +61,8 @@ public class Order {
     public String toString() {
         String ret = "";
 
-        for (Object object : itemsInOrder) {
-            String order = object.toString();
+        for (MenuItem menuItem : itemsInOrder) {
+            String order = menuItem.toString();
             String[] parts = order.split(":");
             String item = parts[0].trim();
             String price = parts[1].trim();

@@ -4,15 +4,27 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class RUCafeMainController {
+
+    private Order order = new Order();
+    private Coffee coffee = new Coffee();
+    public Order getOrder() {
+        return order;
+    }
+
+    public Coffee getCoffee() {
+        return coffee;
+    }
+
+    public void resetCoffee() {
+        coffee = new Coffee();
+    }
+
 
     @FXML
     protected void displayDonutsView() {
@@ -42,11 +54,12 @@ public class RUCafeMainController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("OrderingCoffeeView.fxml"));
             root = loader.load();
-            Scene scene = new Scene(root, 500, 500);
+            Scene scene = new Scene(root, 1000, 700);
             coffeeView.setScene(scene);
             coffeeView.show();
             OrderingCoffeeController coffeeController = loader.getController();
             coffeeController.setMainController(this);
+
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERROR");

@@ -1,14 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
-<VBox alignment="CENTER" prefHeight="800.0" prefWidth="800.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rucafe.project4.OrderingCoffeeController">
+<VBox alignment="CENTER" prefHeight="700.0" prefWidth="1000.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rucafe.project4.OrderingCoffeeController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
     <children>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Coffee View" />
+      <Pane prefHeight="700.0" prefWidth="1000.0">
+         <children>
+            <Pane layoutX="23.0" layoutY="55.0" prefHeight="111.0" prefWidth="270.0">
+               <children>
+                  <ChoiceBox fx:id="cupSizeSelector" layoutX="14.0" layoutY="43.0" onAction="#displayCupSizeSelected" prefWidth="150.0" />
+                  <Label fx:id="cupSizeConfirmationText" layoutX="14.0" layoutY="80.0" prefHeight="17.0" prefWidth="224.0" />
+                  <Text layoutX="14.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Cup Size:" wrappingWidth="206.21630859375">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane layoutX="23.0" layoutY="176.0" prefHeight="236.0" prefWidth="262.0">
+               <children>
+                  <CheckBox fx:id="sweetCream" layoutX="13.0" layoutY="63.0" mnemonicParsing="false" onAction="#addInsSelected" text="Sweet Cream" />
+                  <CheckBox fx:id="frenchVanilla" layoutX="13.0" layoutY="92.0" mnemonicParsing="false" onAction="#addInsSelected" text="French Vanilla" />
+                  <CheckBox fx:id="caramel" layoutX="13.0" layoutY="152.0" mnemonicParsing="false" onAction="#addInsSelected" text="Caramel" />
+                  <CheckBox fx:id="mocha" layoutX="13.0" layoutY="182.0" mnemonicParsing="false" onAction="#addInsSelected" text="Mocha" />
+                  <CheckBox fx:id="irishCream" layoutX="13.0" layoutY="122.0" mnemonicParsing="false" onAction="#addInsSelected" text="Irish Cream" />
+                  <Label fx:id="addInsConfirmationText" layoutX="11.0" layoutY="207.0" prefHeight="17.0" prefWidth="240.0" />
+                  <Text layoutX="14.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Add-ins:" wrappingWidth="206.21630859375">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane layoutX="23.0" layoutY="435.0" prefHeight="119.0" prefWidth="200.0">
+               <children>
+                  <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity:" wrappingWidth="159.56640625">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <ChoiceBox fx:id="quantitySelection" layoutX="14.0" layoutY="41.0" onAction="#quantitySelected" prefHeight="26.0" prefWidth="61.0" />
+                  <Label fx:id="quantityConfirmationText" layoutX="14.0" layoutY="81.0" prefHeight="17.0" prefWidth="170.0" />
+               </children>
+            </Pane>
+            <ScrollPane fx:id="coffeeOrderScroll" layoutX="299.0" layoutY="134.0" prefHeight="68.0" prefWidth="436.0">
+               <content>
+                  <TextFlow fx:id="coffeeOrder" prefHeight="65.0" prefWidth="416.0" />
+               </content>
+            </ScrollPane>
+            <Text layoutX="299.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Details:" wrappingWidth="170.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Label fx:id="subtotalLabel" alignment="CENTER_RIGHT" layoutX="299.0" layoutY="210.0" prefHeight="18.0" prefWidth="436.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button layoutX="299.0" layoutY="215.0" mnemonicParsing="false" onAction="#onAddToBasketClick" text="Add to Basket" />
+            <Label fx:id="addToBasketConfirmation" layoutX="299.0" layoutY="250.0" prefHeight="17.0" prefWidth="280.0" />
+         </children>
+      </Pane>
     </children>
 </VBox>

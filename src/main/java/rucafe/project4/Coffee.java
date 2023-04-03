@@ -10,6 +10,8 @@ public class Coffee extends MenuItem {
     private String cupSize;
     private ArrayList<String> addIns;
 
+    public Coffee() {}
+
     /**
      * Constructor for the Coffee object. Creates a coffee object, which contains a cupSize and a list of add-ins.
      * @param cupSize: String that determines the cup size for coffee.
@@ -28,6 +30,10 @@ public class Coffee extends MenuItem {
         return cupSize;
     }
 
+    public void setCupSize(String cupSize) {
+        this.cupSize = cupSize;
+    }
+
     /**
      * Getter method to retrieve the add-ins for a coffee object.
      * @return ArrayList: returns list of strings which are the add-ins for the coffee.
@@ -36,19 +42,33 @@ public class Coffee extends MenuItem {
         return addIns;
     }
 
+    public void setAddIns(ArrayList<String> addIns) {
+        this.addIns = addIns;
+    }
+
     public double itemPrice() {
         double total = 0;
         switch (cupSize) {
-            case "Short":
+            case "Short": {
                 total = Constants.SHORT_CUP_COST;
-            case "Tall":
+                break;
+            }
+            case "Tall": {
                 total = Constants.TALL_CUP_COST;
-            case "Grande":
+                break;
+            }
+            case "Grande": {
                 total = Constants.GRANDE_CUP_COST;
-            case "Venti":
+                break;
+            }
+            case "Venti": {
                 total = Constants.VENTI_CUP_COST;
-            default:
+                break;
+            }
+            default: {
                 total = Constants.NO_COST;
+                break;
+            }
         }
 
         total += (addIns.size() * Constants.ADD_IN_COST);
@@ -70,14 +90,21 @@ public class Coffee extends MenuItem {
             for (int i = 0; i < addIns.size(); i++) {
                 ret += addIns.get(i);
 
-                if (addIns.size() > 1) {
+                if (addIns.size() > 1 && i != addIns.size() - 1) {
                     ret += ", ";
-                    if (i == addIns.size() - 2)
-                        ret += "and ";
+                    if (i == addIns.size() - 2) {
+                        ret += " and ";
+                    }
+
                 }
             }
         }
 
-        return ret + ": $" + itemPrice();
+        ret += ":\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t$";
+
+        String price = String.format("%.2f", itemPrice());
+        ret += price;
+
+        return ret + "\n";
     }
 }
