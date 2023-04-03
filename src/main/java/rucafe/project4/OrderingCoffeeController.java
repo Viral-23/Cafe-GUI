@@ -154,7 +154,6 @@ public class OrderingCoffeeController {
             addToBasketConfirmation.setText("Order added to basket.");
             retrieveAddIns();
             mainController.getOrder().addItemToOrder(new Coffee(cupSize, addIns));
-            System.out.println(mainController.getOrder());
         }
         else
             addToBasketConfirmation.setText("Please select a cup size.");
