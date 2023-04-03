@@ -12,19 +12,9 @@ import java.io.IOException;
 public class RUCafeMainController {
 
     private Order order = new Order();
-    private Coffee coffee = new Coffee();
     public Order getOrder() {
         return order;
     }
-
-    public Coffee getCoffee() {
-        return coffee;
-    }
-
-    public void resetCoffee() {
-        coffee = new Coffee();
-    }
-
 
     @FXML
     protected void displayDonutsView() {

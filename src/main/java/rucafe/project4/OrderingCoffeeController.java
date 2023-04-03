@@ -104,16 +104,15 @@ public class OrderingCoffeeController {
         CheckBox checkBox = (CheckBox) event.getSource();
         if (checkBox.isSelected()) {
             addInsConfirmationText.setText(checkBox.getText() + " is added.");
-            addIns.add(checkBox.getText());
         } else {
             addInsConfirmationText.setText(checkBox.getText() + " is removed.");
-            addIns.remove(checkBox.getText());
         }
 
-        if (cupSizeSelector.getValue() != null)
+        if (cupSizeSelector.getValue() != null) {
+            retrieveAddIns();
             calculateAndSetSubtotal();
+        }
     }
-
     /**
      * Event handler for the quantity drop down menu. Quantity is defaulted to one when a cup size is selected.
      * A confirmation text will be displayed based on the quantity a user chooses. The subtotal will be updated
@@ -153,14 +152,29 @@ public class OrderingCoffeeController {
     protected void onAddToBasketClick() {
         if (cupSizeSelected) {
             addToBasketConfirmation.setText("Order added to basket.");
-            mainController.resetCoffee();
-            mainController.getCoffee().setCupSize(cupSize);
-            mainController.getCoffee().setAddIns(addIns);
-//            System.out.print(addIns);
-            mainController.getOrder().addItemToOrder(mainController.getCoffee());
-            System.out.print(mainController.getOrder());
+            retrieveAddIns();
+            mainController.getOrder().addItemToOrder(new Coffee(cupSize, addIns));
+            System.out.println(mainController.getOrder());
         }
         else
             addToBasketConfirmation.setText("Please select a cup size.");
+    }
+
+    /**
+     * Gets the add-ins selected by seeing which checkboxes are checked. Adds these add-ins to a new arraylist,
+     * which can then be set to a coffee object.
+     */
+    private void retrieveAddIns() {
+        addIns = new ArrayList<>();
+        if (sweetCream.isSelected())
+            addIns.add(sweetCream.getText());
+        if (frenchVanilla.isSelected())
+            addIns.add(frenchVanilla.getText());
+        if (irishCream.isSelected())
+            addIns.add(irishCream.getText());
+        if (caramel.isSelected())
+            addIns.add(caramel.getText());
+        if (mocha.isSelected())
+            addIns.add(mocha.getText());
     }
 }
