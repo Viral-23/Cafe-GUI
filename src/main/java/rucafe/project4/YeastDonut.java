@@ -21,7 +21,7 @@ public class YeastDonut extends Donut {
      */
     @Override
     public double itemPrice() {
-        return Constants.YEAST_DONUT_PRICE;
+        return Constants.YEAST_DONUT_PRICE * super.getQuantity();
     }
 
     /**
@@ -30,6 +30,9 @@ public class YeastDonut extends Donut {
      */
     @Override
     public String toString() {
-        return super.getQuantity() + "x: " + "Yeast Donut (" + super.getFlavor() + "): $" + itemPrice();
+        String ret = super.getQuantity() + "x: Yeast Donut (" + super.getFlavor() + ")\n";
+        String price = String.format("%.2f", itemPrice());
+        ret += String.format("%1$204s", "$" + price);
+        return ret + "\n";
     }
 }

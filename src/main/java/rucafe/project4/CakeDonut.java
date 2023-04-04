@@ -21,7 +21,7 @@ public class CakeDonut extends Donut {
      */
     @Override
     public double itemPrice() {
-        return Constants.CAKE_DONUT_PRICE;
+        return Constants.CAKE_DONUT_PRICE * super.getQuantity();
     }
 
     /**
@@ -30,6 +30,9 @@ public class CakeDonut extends Donut {
      */
     @Override
     public String toString() {
-        return super.getQuantity() + "x: " + "Cake Donut (" + super.getFlavor() + "): $" + itemPrice();
+        String ret = super.getQuantity() + "x: Cake Donut (" + super.getFlavor() + ")\n";
+        String price = String.format("%.2f", itemPrice());
+        ret += String.format("%1$204s", "$" + price);
+        return ret + "\n";
     }
 }
