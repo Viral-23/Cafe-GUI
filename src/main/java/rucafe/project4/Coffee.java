@@ -10,10 +10,15 @@ public class Coffee extends MenuItem {
     private String cupSize;
     private ArrayList<String> addIns;
 
+    /**
+     * Default constructor for coffee class, allows new coffee object to be created without any parameters.
+     */
     public Coffee() {}
 
     /**
      * Constructor for the Coffee object. Creates a coffee object, which contains a cupSize and a list of add-ins.
+     * All coffee objects also have a quantity, which is initialized to one in the superclass constructor found in
+     * MenuItem.
      * @param cupSize: String that determines the cup size for coffee.
      * @param addIns: List of strings that contains all add-ins for the coffee.
      */
@@ -30,10 +35,6 @@ public class Coffee extends MenuItem {
         return cupSize;
     }
 
-    public void setCupSize(String cupSize) {
-        this.cupSize = cupSize;
-    }
-
     /**
      * Getter method to retrieve the add-ins for a coffee object.
      * @return ArrayList: returns list of strings which are the add-ins for the coffee.
@@ -42,10 +43,10 @@ public class Coffee extends MenuItem {
         return addIns;
     }
 
-    public void setAddIns(ArrayList<String> addIns) {
-        this.addIns = addIns;
-    }
-
+    /**
+     * Calculates the price of a coffee.
+     * @return double: returns the price of the coffee.
+     */
     public double itemPrice() {
         double total = 0;
         switch (cupSize) {
@@ -78,12 +79,12 @@ public class Coffee extends MenuItem {
 
     /**
      * Overrides the toString method to display the Coffee object in the form of a string.
-     * @return String: returns the Coffee object formatted as a String, which includes the cup size, list of add-ins,
-     * and the price.
+     * @return String: returns the Coffee object formatted as a String, which includes the quantity,
+     * cup size, list of add-ins, and the price.
      */
     @Override
     public String toString() {
-        String ret = cupSize + " black coffee";
+        String ret = super.getQuantity() + "x: " + cupSize + " black coffee";
 
         if (addIns.size() > 0) {
             ret += " with ";

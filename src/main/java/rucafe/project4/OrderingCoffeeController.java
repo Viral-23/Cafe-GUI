@@ -12,7 +12,7 @@ import javafx.scene.text.TextFlow;
 import java.util.ArrayList;
 
 /**
- * This is a class that allows for the creation of a coffee object.
+ * This is a class that handles the coffee view, which allows the user to customize and add coffees to their basket.
  * @author Viral Patel, Rohan Patel
  */
 public class OrderingCoffeeController {
@@ -135,11 +135,15 @@ public class OrderingCoffeeController {
     private void calculateAndSetSubtotal() {
         coffeeOrder.getChildren().clear();
 
+        int quantity = Integer.parseInt(quantitySelection.getValue());
         Coffee coffee = new Coffee(cupSize, addIns);
+        if (quantity != Constants.DEFAULT_VALUE)
+            coffee.setQuantity(quantity);
+
         coffeeOrder.getChildren().add(new Text(coffee.toString()));
 
-        int quantity = Integer.parseInt(quantitySelection.getValue());
-        subtotal =  quantity * coffee.itemPrice();
+
+        subtotal = coffee.itemPrice() * coffee.getQuantity();
         subtotalLabel.setText("Subtotal:\t$" + String.format("%.2f", subtotal));
     }
 

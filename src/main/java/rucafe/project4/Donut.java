@@ -8,7 +8,8 @@ public abstract class Donut extends MenuItem {
     private String flavor;
 
     /**
-     * Constructor for donut object, contains flavor.
+     * Constructor for donut object, contains flavor. Also contains a quantity initialized to one in the
+     * superclass MenuItem.
      * @param flavor String: flavor of the donut.
      */
     public Donut(String flavor) {

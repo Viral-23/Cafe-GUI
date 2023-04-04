@@ -7,7 +7,8 @@ package rucafe.project4;
 public class DonutHole extends Donut {
 
     /**
-     * Constructor for donut hole object, contains flavor.
+     * Constructor for donut hole object, contains flavor. Also contains a quantity initialized to one in the
+     * superclass MenuItem.
      * @param flavor String: flavor of the donut.
      */
     public DonutHole(String flavor) {
@@ -25,10 +26,10 @@ public class DonutHole extends Donut {
 
     /**
      * Overrides the toString method, which formats the donut hole object.
-     * @return String: returns the formatted donut hole object, which includes the flavor and price.
+     * @return String: returns the formatted donut hole object, which includes the quantity, flavor, and price.
      */
     @Override
     public String toString() {
-        return "Donut Hole (" + super.getFlavor() + "): $" + itemPrice();
+        return super.getQuantity() + "x: " + "Donut Hole (" + super.getFlavor() + "): $" + itemPrice();
     }
 }

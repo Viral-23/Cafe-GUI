@@ -7,7 +7,8 @@ package rucafe.project4;
 public class YeastDonut extends Donut {
 
     /**
-     * Constructor for yeast donut object, contains flavor.
+     * Constructor for yeast donut object, contains flavor. Also contains a quantity initialized to one in the
+     * superclass MenuItem.
      * @param flavor String: flavor of the donut.
      */
     public YeastDonut(String flavor) {
@@ -25,10 +26,10 @@ public class YeastDonut extends Donut {
 
     /**
      * Overrides the toString method, which formats the yeast donut object.
-     * @return String: returns the formatted yeast donut object, which includes the flavor and price.
+     * @return String: returns the formatted yeast donut object, which includes the quantity, flavor, and price.
      */
     @Override
     public String toString() {
-        return "Yeast Donut (" + super.getFlavor() + "): $" + itemPrice();
+        return super.getQuantity() + "x: " + "Yeast Donut (" + super.getFlavor() + "): $" + itemPrice();
     }
 }

@@ -5,6 +5,20 @@ package rucafe.project4;
  * @author Viral Patel, Rohan Patel
  */
 public abstract class MenuItem {
+
+    private int quantity;
+
+    public MenuItem() {
+        quantity = 1;
+    }
+    public void setQuantity(int num) {
+        quantity = num;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
     /**
      * Abstract method which calculates the price of a menu item. All MenuItem subclasses implement this class,
      * each having their own price based on the item.
