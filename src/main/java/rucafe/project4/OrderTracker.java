@@ -1,5 +1,8 @@
 package rucafe.project4;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class OrderTracker {
@@ -25,14 +28,22 @@ public class OrderTracker {
     /**
      * Cancels (removes) the order from the list of orders. The order numbers are reassigned to the other orders
      * in the list to account for the removal of the order.
-     * @param orderNumber int: the order number that is being removed
+     * @param index int: the index of the order that is being removed
      */
-    public void cancel(int orderNumber) {
-        orderTracker.remove(orderNumber - 1);
+    public void cancel(int index) {
+        orderTracker.remove(index);
 
         for (int i = 0; i < orderTracker.size(); i++) {
             orderTracker.get(i).setOrderNumber(i + 1);
         }
+    }
+
+    /**
+     * Getter method, retrieves the arraylist of orders in the OrderTracker object.
+     * @return ArrayList: returns the arraylist of Order objects.
+     */
+    public ArrayList<Order> getOrdersInTracker() {
+        return orderTracker;
     }
 
     /**
@@ -45,5 +56,21 @@ public class OrderTracker {
             ret += (orderTracker.get(i).toString() + "\n\n");
 
         return ret;
+    }
+
+    public String exportStoreOrders() {
+        if (orderTracker.isEmpty()) {
+            return "No orders to be export.";
+        }
+        try {
+            FileWriter writer = new FileWriter("src/main/resources/rucafe/project4/storeOrders.txt");
+            String export = printOrders();
+            writer.write(export);
+            writer.close();
+            return "Orders successfully exported.";
+        }
+        catch (IOException e) {
+            return "File does not exist.";
+        }
     }
 }

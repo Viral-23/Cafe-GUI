@@ -39,6 +39,8 @@ public class OrderingBasketController {
             itemsInOrder = FXCollections.observableArrayList(mainController.getOrder().getItemsInOrder());
             itemsInCustomerOrder.setItems(itemsInOrder);
             updateCosts();
+            if (itemsInCustomerOrder.getItems().isEmpty())
+                clearCosts();
         }
     }
 
@@ -49,8 +51,7 @@ public class OrderingBasketController {
     private void updateCosts() {
         taxLabel.setText("Sales tax: $" + String.format("%.2f", mainController.getOrder().calculateSalesTax()));
         subtotalLabel.setText("Subtotal: $" + String.format("%.2f", mainController.getOrder().calculateSubtotal()));
-        totalLabel.setText("Total: $"  + String.format("%.2f",
-                mainController.getOrder().calculateSalesTax() + mainController.getOrder().calculateSubtotal()));
+        totalLabel.setText("Total: $"  + String.format("%.2f", mainController.getOrder().calculateTotal()));
     }
 
     /**

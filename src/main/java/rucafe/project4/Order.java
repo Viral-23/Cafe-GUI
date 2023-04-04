@@ -8,7 +8,9 @@ import java.util.ArrayList;
  */
 
 public class Order {
-    private int orderNumber = 0;
+    private int orderNumber;
+
+    private double total;
     private ArrayList<MenuItem> itemsInOrder;
 
     /**
@@ -16,6 +18,8 @@ public class Order {
      */
     public Order() {
         itemsInOrder = new ArrayList<>();
+        orderNumber = Constants.DEFAULT_VALUE;
+        total = Constants.NO_COST;
     }
 
     /**
@@ -100,21 +104,29 @@ public class Order {
         return tax;
     }
 
+    public double calculateTotal() {
+        double subtotal = calculateSubtotal();
+        double tax = subtotal * Constants.NJ_SALES_TAX;
+
+        total = subtotal + tax;
+        return total;
+    }
+
     /**
      * Overrides the toString method, displays items in order and their prices in a list view.
      * @return String: the string that contains the list of formatted items in the order.
      */
     @Override
     public String toString() {
-        String ret = "";
+        calculateTotal();
+        String ret = "Order #" + orderNumber + "\n\n";
 
         for (MenuItem menuItem : itemsInOrder) {
-            String order = menuItem.toString();
-            String[] parts = order.split(":");
-            String item = parts[0].trim();
-            String price = parts[1].trim();
-            ret += String.format("%-10s %6s\n", item, price);
+            ret += menuItem.toString();
         }
+
+        String formattedTotal = String.format("%.2f", total);
+        ret += String.format("\n%1$222s\n", "Total: $" + formattedTotal);
 
         return ret;
     }

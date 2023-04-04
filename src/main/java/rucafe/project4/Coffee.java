@@ -84,7 +84,7 @@ public class Coffee extends MenuItem {
      */
     @Override
     public String toString() {
-        String ret = super.getQuantity() + "x: " + cupSize + " black coffee";
+        String ret = super.getQuantity() + "x\t" + cupSize + " black coffee";
 
         if (addIns.size() > 0) {
             ret += " with ";
