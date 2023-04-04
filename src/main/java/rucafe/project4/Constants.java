@@ -19,4 +19,6 @@ public class Constants {
 
     public static final int DEFAULT_VALUE = 1;
 
+    public static final double NJ_SALES_TAX = 0.06625;
+
 }

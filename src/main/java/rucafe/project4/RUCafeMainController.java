@@ -9,13 +9,43 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * This is a class that handles the main view, which allows the user to navigate between different views like the
+ * donut view, coffee view, basket view, and orders view.
+ * @author Viral Patel, Rohan Patel
+ */
+
 public class RUCafeMainController {
 
     private Order order = new Order();
+    private OrderTracker orderTracker = new OrderTracker();
+
+    /**
+     * Getter method, retrieves the order stored in the main controller.
+     * @return Order: returns the order stored in the main controller.
+     */
     public Order getOrder() {
         return order;
     }
 
+    /**
+     * Clears the current order, so that a new order can be made by the user.
+     */
+    public void resetOrder() {
+        order = new Order();
+    }
+
+    /**
+     * Getter method, retrieves the orders stored in the main controller.
+     * @return OrderTracker: returns the OrderTracker object which holds all the customer orders placed.
+     */
+    public OrderTracker getOrderTracker() {
+        return orderTracker;
+    }
+
+    /**
+     * Set-up for the donut view. The reference to the main controller is passed here.
+     */
     @FXML
     protected void displayDonutsView() {
         Stage donutView = new Stage();
@@ -37,6 +67,9 @@ public class RUCafeMainController {
         }
     }
 
+    /**
+     * Set-up for the coffee view. The reference to the main controller is passed here.
+     */
     @FXML
     protected void displayCoffeeView() {
         Stage coffeeView = new Stage();
@@ -59,6 +92,9 @@ public class RUCafeMainController {
         }
     }
 
+    /**
+     * Set-up for the basket view. The reference to the main controller is passed here.
+     */
     @FXML
     protected void displayBasketView() {
         Stage basketView = new Stage();
@@ -66,7 +102,7 @@ public class RUCafeMainController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("OrderingBasketView.fxml"));
             root = loader.load();
-            Scene scene = new Scene(root, 500, 500);
+            Scene scene = new Scene(root, 1000, 700);
             basketView.setScene(scene);
             basketView.show();
             OrderingBasketController basketController = loader.getController();
@@ -80,6 +116,9 @@ public class RUCafeMainController {
         }
     }
 
+    /**
+     * Set-up for the orders view. The reference to the main controller is passed here.
+     */
     @FXML
     protected void displayOrdersView() {
         Stage ordersView = new Stage();
@@ -87,7 +126,7 @@ public class RUCafeMainController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("StoreOrdersView.fxml"));
             root = loader.load();
-            Scene scene = new Scene(root, 500, 500);
+            Scene scene = new Scene(root, 1000, 700);
             ordersView.setScene(scene);
             ordersView.show();
             StoreOrdersController ordersController = loader.getController();

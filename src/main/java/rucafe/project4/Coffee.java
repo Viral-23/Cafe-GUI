@@ -74,7 +74,7 @@ public class Coffee extends MenuItem {
 
         total += (addIns.size() * Constants.ADD_IN_COST);
 
-        return total;
+        return total * super.getQuantity();
     }
 
     /**
@@ -101,10 +101,12 @@ public class Coffee extends MenuItem {
             }
         }
 
-        ret += ":\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t$";
+        ret += "\n";
+
 
         String price = String.format("%.2f", itemPrice());
-        ret += price;
+        ret += String.format("%1$204s", "$" + price);
+
 
         return ret + "\n";
     }

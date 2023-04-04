@@ -20,7 +20,6 @@ public class OrderingCoffeeController {
 
     String cupSize;
     ArrayList<String> addIns = new ArrayList<>();
-    double subtotal;
 
     private boolean cupSizeSelected = false;
     @FXML
@@ -36,6 +35,10 @@ public class OrderingCoffeeController {
     @FXML
     private TextFlow coffeeOrder;
 
+    /**
+     * Get the reference to the MainController object
+     * @param controller: the reference to the MainController object.
+     */
     public void setMainController (RUCafeMainController controller){
         mainController = controller;
     }
@@ -132,6 +135,7 @@ public class OrderingCoffeeController {
     /**
      * Method that calculates the subtotal of the coffee order created.
      */
+    @FXML
     private void calculateAndSetSubtotal() {
         coffeeOrder.getChildren().clear();
 
@@ -140,11 +144,14 @@ public class OrderingCoffeeController {
         if (quantity != Constants.DEFAULT_VALUE)
             coffee.setQuantity(quantity);
 
-        coffeeOrder.getChildren().add(new Text(coffee.toString()));
+        String coffeeOrderString = coffee.toString();
+        String[] coffeeOrderParts = coffeeOrderString.split("\\$");
+        double itemPrice = Double.parseDouble(coffeeOrderParts[1]) / quantity;
+        String newCoffeeOrderString = coffeeOrderParts[0] + "$" + String.format("%.2f", itemPrice);
 
+        coffeeOrder.getChildren().add(new Text(newCoffeeOrderString));
 
-        subtotal = coffee.itemPrice() * coffee.getQuantity();
-        subtotalLabel.setText("Subtotal:\t$" + String.format("%.2f", subtotal));
+        subtotalLabel.setText("Subtotal:\t$" + String.format("%.2f", coffee.itemPrice()));
     }
 
     /**
@@ -157,7 +164,10 @@ public class OrderingCoffeeController {
         if (cupSizeSelected) {
             addToBasketConfirmation.setText("Order added to basket.");
             retrieveAddIns();
-            mainController.getOrder().addItemToOrder(new Coffee(cupSize, addIns));
+            int quantity = Integer.parseInt(quantitySelection.getValue());
+            Coffee coffee = new Coffee(cupSize, addIns);
+            coffee.setQuantity(quantity);
+            mainController.getOrder().addItemToOrder(coffee);
         }
         else
             addToBasketConfirmation.setText("Please select a cup size.");
@@ -167,6 +177,7 @@ public class OrderingCoffeeController {
      * Gets the add-ins selected by seeing which checkboxes are checked. Adds these add-ins to a new arraylist,
      * which can then be set to a coffee object.
      */
+    @FXML
     private void retrieveAddIns() {
         addIns = new ArrayList<>();
         if (sweetCream.isSelected())

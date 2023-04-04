@@ -11,8 +11,20 @@ public class Order {
     private int orderNumber = 0;
     private ArrayList<MenuItem> itemsInOrder;
 
+    /**
+     * Default constructor for the order object.
+     */
     public Order() {
         itemsInOrder = new ArrayList<>();
+    }
+
+    /**
+     * Copy constructor for the order object.
+     * @param order: the order that is being copied.
+     */
+    public Order(Order order) {
+        orderNumber = order.orderNumber;
+        itemsInOrder = order.itemsInOrder;
     }
 
     /**
@@ -41,16 +53,51 @@ public class Order {
         return orderNumber;
     }
 
+    /**
+     * Getter method, which retrieves all items in the order.
+     * @return ArrayList: the arraylist of menu items in the order.
+     */
     public ArrayList<MenuItem> getItemsInOrder() {
         return itemsInOrder;
     }
 
     /**
      * Adds a menu item to the order, specified by menuItem.
-     * @param menuItem
+     * @param menuItem: the MenuItem being added to the order.
      */
-    public void addItemToOrder(Coffee menuItem) {
+    public void addItemToOrder(MenuItem menuItem) {
         itemsInOrder.add(menuItem);
+    }
+
+    /**
+     * Removes a menu item from the order, specified by an index.
+     * @param index: the index of the menu item desired to be removed.
+     */
+    public void removeItemInOrder(int index) {
+        itemsInOrder.remove(index);
+    }
+
+    /**
+     * Calculates the subtotal of the order.
+     * @return double: returns the subtotal amount of the order.
+     */
+    public double calculateSubtotal() {
+        double subtotal = 0;
+        for (MenuItem menuItem: itemsInOrder)
+            subtotal += menuItem.itemPrice();
+
+        return subtotal;
+    }
+
+    /**
+     * Calculates the sales tax of the order, which is based on the NJ sales tax amount.
+     * @return double: returns the sales tax of the order.
+     */
+    public double calculateSalesTax() {
+        double subtotal = calculateSubtotal();
+        double tax = subtotal * Constants.NJ_SALES_TAX;
+
+        return tax;
     }
 
     /**

@@ -7,6 +7,13 @@ public class OrderTracker {
     private ArrayList<Order> orderTracker;
 
     /**
+     * Default constructor for an OrderTracker object.
+     */
+    public OrderTracker() {
+        orderTracker = new ArrayList<>();
+    }
+
+    /**
      * Adds an order to the list of orders, assigning an order number based on its position in the list.
      * @param order Order: the order being added.
      */
