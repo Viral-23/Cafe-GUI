@@ -9,7 +9,7 @@ public abstract class MenuItem {
     private int quantity;
 
     public MenuItem() {
-        quantity = 1;
+        quantity = Constants.DEFAULT_VALUE;
     }
     public void setQuantity(int num) {
         quantity = num;
