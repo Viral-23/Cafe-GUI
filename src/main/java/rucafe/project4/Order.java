@@ -104,6 +104,10 @@ public class Order {
         return tax;
     }
 
+    /**
+     * Calculates the total of the order, which is the subtotal and tax added together.
+     * @return double: returns the total of the order.
+     */
     public double calculateTotal() {
         double subtotal = calculateSubtotal();
         double tax = subtotal * Constants.NJ_SALES_TAX;

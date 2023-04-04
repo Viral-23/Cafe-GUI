@@ -30,6 +30,9 @@ public class StoreOrdersController {
         setDataToStoreOrders();
     }
 
+    /**
+     * Sets the store orders when the user enters the store orders view.
+     */
     private void setDataToStoreOrders() {
         if (mainController.getOrderTracker().getOrdersInTracker() != null) {
             storeOrders = FXCollections.observableArrayList(mainController.getOrderTracker().getOrdersInTracker());
@@ -37,6 +40,11 @@ public class StoreOrdersController {
         }
     }
 
+    /**
+     * Handles the Cancel Order button. When this button is clicked, a selected order is cancelled and removed from
+     * the list. The order numbers are reassigned based on the deletion. If no order is selected, an error message
+     * will appear.
+     */
     @FXML
     protected void onCancelOrderButtonClick() {
         int selectedIndex = storeOrdersListView.getSelectionModel().getSelectedIndex();
@@ -52,6 +60,11 @@ public class StoreOrdersController {
             cancelOrderLabel.setText("No store orders.");
     }
 
+    /**
+     * Handles the Export Orders button. When this button is clicked, a message will appear based on the action
+     * that is taken. If the order is successfully exported, it will display that and show in the storeOrders.txt
+     * file. Otherwise, it will show the relevant error message.
+     */
     @FXML
     protected void onExportOrdersButtonClick() {
             exportOrdersLabel.setText(mainController.getOrderTracker().exportStoreOrders());

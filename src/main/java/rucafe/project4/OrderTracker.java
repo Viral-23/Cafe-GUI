@@ -58,6 +58,10 @@ public class OrderTracker {
         return ret;
     }
 
+    /**
+     * Method that exports all orders in the OrderTracker to a txt file named storeOrders.txt. Formatting is retained.
+     * @return String: returns the confirmation/error message based on if the orders sucessfully exported or not.
+     */
     public String exportStoreOrders() {
         if (orderTracker.isEmpty()) {
             return "No orders to be export.";
