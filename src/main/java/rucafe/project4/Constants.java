@@ -19,6 +19,13 @@ public class Constants {
 
     public static final int DEFAULT_VALUE = 1;
 
+    public static final int NOT_FOUND = -1;
+
+
     public static final double NJ_SALES_TAX = 0.06625;
+
+    public static final int MIN_DONUT_QUANTITY = 1;
+    public static final int MAX_DONUT_QUANTITY = 24;
+
 
 }

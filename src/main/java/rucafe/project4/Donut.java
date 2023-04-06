@@ -8,6 +8,11 @@ public abstract class Donut extends MenuItem {
     private String flavor;
 
     /**
+     * Default constructor for the donut object.
+     */
+    public Donut(){}
+
+    /**
      * Constructor for donut object, contains flavor. Also contains a quantity initialized to one in the
      * superclass MenuItem.
      * @param flavor String: flavor of the donut.
@@ -22,6 +27,14 @@ public abstract class Donut extends MenuItem {
      */
     public String getFlavor() {
         return flavor;
+    }
+
+    /**
+     * Setter method to set the flavor of a donut.
+     * @param flavor String: the flavor of the donut that is wish to be set/updated.
+     */
+    public void setFlavor(String flavor) {
+        this.flavor = flavor;
     }
 
     /**

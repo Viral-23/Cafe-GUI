@@ -14,7 +14,8 @@ public class Order {
     private ArrayList<MenuItem> itemsInOrder;
 
     /**
-     * Default constructor for the order object.
+     * Default constructor for the order object. Initializes a new ArrayList, sets orderNumber to the default value
+     * (which is 1), and sets the total of the order to no cost, or 0.
      */
     public Order() {
         itemsInOrder = new ArrayList<>();

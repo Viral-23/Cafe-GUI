@@ -1,14 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
-<VBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rucafe.project4.OrderingDonutsController">
+<VBox alignment="CENTER" prefHeight="700.0" prefWidth="1000.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rucafe.project4.OrderingDonutsController">
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
    <children>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Donut View" />
+      <Pane prefHeight="700.0" prefWidth="1000.0">
+         <children>
+            <Pane layoutX="23.0" layoutY="22.0" prefHeight="125.0" prefWidth="321.0">
+               <children>
+                  <Label fx:id="donutTypeLabel" layoutX="21.0" layoutY="67.0" prefHeight="17.0" prefWidth="216.0" />
+                  <ComboBox fx:id="donutTypeSelector" layoutX="25.0" layoutY="35.0" onAction="#donutSelected" prefWidth="150.0" />
+               </children>
+            </Pane>
+            <ImageView fx:id="donutImage" fitHeight="150.0" fitWidth="200.0" layoutX="244.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" />
+            <ListView fx:id="flavorList" layoutX="30.0" layoutY="255.0" onMouseClicked="#flavorSelected" prefHeight="200.0" prefWidth="200.0" />
+            <Text layoutX="30.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Flavors:" wrappingWidth="177.06591796875">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <ScrollPane fx:id="donutOrderScroll" layoutX="293.0" layoutY="293.0" prefHeight="68.0" prefWidth="595.0">
+               <content>
+                  <TextFlow fx:id="donutOrder" prefHeight="65.0" prefWidth="587.0" />
+               </content>
+            </ScrollPane>
+            <Text layoutX="293.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Details:" wrappingWidth="170.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Label fx:id="subtotalLabel" alignment="CENTER_RIGHT" layoutX="469.0" layoutY="374.0" prefHeight="18.0" prefWidth="390.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button layoutX="293.0" layoutY="374.0" mnemonicParsing="false" onAction="#onAddToBasketClick" text="Add to Basket" />
+            <Label fx:id="addToBasketConfirmation" layoutX="293.0" layoutY="409.0" prefHeight="17.0" prefWidth="622.0" />
+            <TextField fx:id="quantityInput" layoutX="67.0" layoutY="541.0" onAction="#quantitySelected" />
+            <Text layoutX="30.0" layoutY="529.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity:" />
+            <Label fx:id="quantityConfirmationText" layoutX="30.0" layoutY="575.0" prefHeight="17.0" prefWidth="654.0" />
+            <Label fx:id="flavorLabel" layoutX="30.0" layoutY="464.0" prefHeight="17.0" prefWidth="209.0" />
+            <Button fx:id="quantitySetButton" layoutX="32.0" layoutY="541.0" mnemonicParsing="false" onAction="#quantitySelected" text="Set" />
+         </children>
+      </Pane>
    </children>
 </VBox>

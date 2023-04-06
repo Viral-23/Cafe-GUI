@@ -133,7 +133,7 @@ public class OrderingCoffeeController {
     }
 
     /**
-     * Method that calculates the subtotal of the coffee order created.
+     * Method that calculates and displays the subtotal of the coffee order created.
      */
     @FXML
     private void calculateAndSetSubtotal() {

@@ -53,7 +53,8 @@ public class RUCafeMainController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("OrderingDonutsView.fxml"));
             root = loader.load();
-            Scene scene = new Scene(root, 500, 500);
+            Scene scene = new Scene(root, 1000, 700);
+            donutView.setTitle("Donut View");
             donutView.setScene(scene);
             donutView.show();
             OrderingDonutsController donutsController = loader.getController();
@@ -78,6 +79,7 @@ public class RUCafeMainController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("OrderingCoffeeView.fxml"));
             root = loader.load();
             Scene scene = new Scene(root, 1000, 700);
+            coffeeView.setTitle("Coffee View");
             coffeeView.setScene(scene);
             coffeeView.show();
             OrderingCoffeeController coffeeController = loader.getController();
@@ -103,6 +105,7 @@ public class RUCafeMainController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("OrderingBasketView.fxml"));
             root = loader.load();
             Scene scene = new Scene(root, 1000, 700);
+            basketView.setTitle("Basket View");
             basketView.setScene(scene);
             basketView.show();
             OrderingBasketController basketController = loader.getController();
@@ -117,7 +120,7 @@ public class RUCafeMainController {
     }
 
     /**
-     * Set-up for the orders view. The reference to the main controller is passed here.
+     * Set-up for the store orders view. The reference to the main controller is passed here.
      */
     @FXML
     protected void displayOrdersView() {
@@ -127,6 +130,7 @@ public class RUCafeMainController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("StoreOrdersView.fxml"));
             root = loader.load();
             Scene scene = new Scene(root, 1000, 700);
+            ordersView.setTitle("Store Orders View");
             ordersView.setScene(scene);
             ordersView.show();
             StoreOrdersController ordersController = loader.getController();

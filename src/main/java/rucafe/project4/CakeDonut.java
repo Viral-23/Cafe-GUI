@@ -7,6 +7,11 @@ package rucafe.project4;
 public class CakeDonut extends Donut {
 
     /**
+     * Default constructor for the cake donut object.
+     */
+    public CakeDonut() {}
+
+    /**
      * Constructor for cake donut object, contains flavor. Also contains a quantity initialized to one in the
      * superclass MenuItem.
      * @param flavor String: flavor of the donut.
@@ -30,7 +35,7 @@ public class CakeDonut extends Donut {
      */
     @Override
     public String toString() {
-        String ret = super.getQuantity() + "x: Cake Donut (" + super.getFlavor() + ")\n";
+        String ret = super.getQuantity() + "x\t Cake Donut (" + super.getFlavor() + ")\n";
         String price = String.format("%.2f", itemPrice());
         ret += String.format("%1$204s", "$" + price);
         return ret + "\n";

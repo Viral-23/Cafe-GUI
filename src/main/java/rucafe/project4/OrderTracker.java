@@ -4,6 +4,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * This is a class that allows for the creation of an OrderTracker object.
+ * @author Viral Patel, Rohan Patel
+ */
+
 public class OrderTracker {
 
     private ArrayList<Order> orderTracker;
