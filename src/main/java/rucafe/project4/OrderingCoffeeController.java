@@ -57,7 +57,7 @@ public class OrderingCoffeeController {
         mocha.setDisable(true);
         quantitySelection.setDisable(true);
 
-        String cupSizeOptions[] = {"Short", "Tall", "Venti", "Grande"};
+        String cupSizeOptions[] = {"Short", "Tall", "Grande", "Venti"};
         cupSizeSelector.getItems().addAll(cupSizeOptions);
         cupSizeConfirmationText.setText("No option selected.");
 
